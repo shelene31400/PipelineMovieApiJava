@@ -10,7 +10,7 @@ pipeline {
         jdk 'JDK11'
     }
         parameters {
-        string(name :'BRANCH', defaultValue :'dev', description :'Git branch of the Java Project')
+        string(name :'BRANCH', defaultValue :'master', description :'Git branch of the Java Project')
         }
     stages {
         stage('Build') {
@@ -38,6 +38,7 @@ pipeline {
 stage ('package') {
 steps { 
 sh "mvn -DskipTests package"
+archiveArtifacts 'target/*.jar'
 }
          
             }
