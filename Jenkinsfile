@@ -10,7 +10,7 @@ pipeline {
         jdk 'JDK11'
     }
         parameters {
-        string(name :'BRANCH', defaultValue :'master', description :'Git branch of the Java Project')
+        string(name :'BRANCH', defaultValue :'dev', description :'Git branch of the Java Project')
         }
     stages {
         stage('Build') {
@@ -24,7 +24,7 @@ pipeline {
                         // bat "mvn -Dmaven.test.failure.ignore=true clean package"
                     }
                 }
- stage('Test') {
+	stage('Test') {
             steps {
                 sh "mvn test"
             }
