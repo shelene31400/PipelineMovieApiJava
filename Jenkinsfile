@@ -20,10 +20,6 @@ pipeline {
         }
 		stage('Test') {
             steps {
-                // Get some code from a GitHub repository
-                git branch: 'dev' ,
-                    url: 'https://github.com/matthcol/movieapijava2021'
-
                 // Run Maven on a Unix agent.
                 sh "mvn -Dmaven.test.failure.ignore=true test"
             }
@@ -39,10 +35,6 @@ pipeline {
         }
 		        stage('Package') {
             steps {
-                // Get some code from a GitHub repository
-                git branch: 'dev' ,
-                    url: 'https://github.com/matthcol/movieapijava2021'
-
                 // Run Maven on a Unix agent.
                 sh "mvn -DskipTests -Dmaven.test.failure.ignore=false package"
             }
